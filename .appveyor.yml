@@ -22,4 +22,4 @@ install:
 build_script:
   - |
     cd c:\projects\catboost
-    call ya.bat -rttt catboost\app catboost\pytest
+    call ya.bat make -rttt catboost\app catboost\pytest
