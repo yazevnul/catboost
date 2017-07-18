@@ -1,0 +1,20 @@
+sudo: false
+language: cpp
+cache: apt
+cache:
+  - apt
+  - directories:
+    - $HOME/.ya
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+
+matrix:
+  include:
+    - os: linux
+    - os: osx
+
+script:
+  ./ya make --verbose -dttt catboost/app
