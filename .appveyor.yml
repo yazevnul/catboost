@@ -10,6 +10,12 @@ environment:
     - image: Visual Studio 2015
       configuration: Release
       arch: 64
+    - image: Visual Studio 2015
+      configuration: Debug
+      arch: 64
+    - image: Visual Studio 2017
+      configuration: Release
+      arch: 64
     - image: Visual Studio 2017
       configuration: Debug
       arch: 64
@@ -22,4 +28,4 @@ install:
 build_script:
   - |
     cd c:\projects\catboost
-    call ya.bat make --stat -rttt catboost\app catboost\pytest
+    call ya.bat make --verbose --stat -rttt catboost\app catboost\pytest
