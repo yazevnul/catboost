@@ -27,37 +27,37 @@ matrix:
         - |
           unset CC
           unset CXX
-          export CB_BUILD_AGENT='clang-linux-x86_64-debug'
+      env: CB_BUILD_AGENT='clang-linux-x86_64-debug'
     - os: linux
       before_install:
         - |
           unset CC
           unset CXX
-          export CB_BUILD_AGENT='python2-linux-x86_64-debug'
+      env: CB_BUILD_AGENT='python2-linux-x86_64-debug'
     - os: linux
       before_install:
         - |
           unset CC
           unset CXX
-          export CB_BUILD_AGENT='python3-linux-x86_64-debug'
+      env: CB_BUILD_AGENT='python3-linux-x86_64-debug'
     - os: osx
       before_install:
         - |
           unset CC
           unset CXX
-          export CB_BUILD_AGENT='clang-darwin-x86_64-debug'
+      env: CB_BUILD_AGENT='clang-darwin-x86_64-debug'
     - os: osx
       before_install:
         - |
           unset CC
           unset CXX
-          export CB_BUILD_AGENT='python3-darwin-x86_64-debug'
+      env: CB_BUILD_AGENT='python3-darwin-x86_64-debug'
     - os: osx
       before_install:
         - |
           unset CC
           unset CXX
-          export CB_BUILD_AGENT='python3-darwin-x86_64-debug'
+      env: CB_BUILD_AGENT='python3-darwin-x86_64-debug'
 
 script:
   - |
