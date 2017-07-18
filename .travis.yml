@@ -2,19 +2,30 @@ sudo: false
 language: cpp
 cache: apt
 cache:
-  - apt
-  - directories:
+  apt: true
+  directories:
     - $HOME/.ya
 
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+    packages:
+      - build-essential
+      - libc6-dev
 
 matrix:
   include:
     - os: linux
+      before_install:
+        - |
+          unset CC
+          unset CXX
     - os: osx
+      before_install:
+        - |
+          unset CC
+          unset CXX
 
 script:
   ./ya make --verbose -dttt catboost/app
