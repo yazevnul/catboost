@@ -51,7 +51,7 @@ matrix:
         - |
           unset CC
           unset CXX
-      env: CB_BUILD_AGENT='python3-darwin-x86_64-debug'
+      env: CB_BUILD_AGENT='python2-darwin-x86_64-debug'
     - os: osx
       before_install:
         - |
@@ -87,7 +87,7 @@ matrix:
         - |
           unset CC
           unset CXX
-      env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
+      env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
     - os: osx
       before_install:
         - |
