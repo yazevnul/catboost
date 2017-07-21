@@ -69,6 +69,9 @@ def build(arc_root, out_root, tail_args):
               sys.executable, arc_root + '/ya', 'make', os.path.join(arc_root, 'catboost', 'python-package', 'catboost'),
               '--no-src-links', '-r', '--output', out_root, '-DUSE_ARCADIA_PYTHON=no', '-DPYTHON_CONFIG=' + py_config
           ] + extra_opts() + tail_args
+    if os.environ.get('TRAVIS') is not None:
+        cmd += ['-j', '1']
+
     print(' '.join(cmd), file=sys.stderr)
     subprocess.check_call(cmd)
 
