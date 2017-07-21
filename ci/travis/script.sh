@@ -18,20 +18,20 @@ fi
 
 if [ "${CB_BUILD_AGENT}" == 'python2-linux-x86_64-release' ]; then
     cd catboost/python-package;
-    python2.7 ./mk_wheel.py;
+    python2 ./mk_wheel.py;
 fi
 
 if [ "${CB_BUILD_AGENT}" == 'python2-darwin-x86_64-release' ]; then
     cd catboost/python-package;
-    python2.7 ./mk_wheel.py;
+    python2 ./mk_wheel.py;
 fi
 
 if [ "${CB_BUILD_AGENT}" == 'python3-linux-x86_64-release' ]; then
     cd catboost/python-package;
-    python3.4 ./mk_wheel.py;
+    python3 ./mk_wheel.py;
 fi
 
 if [ "${CB_BUILD_AGENT}" == 'python3-darwin-x86_64-release' ]; then
     cd catboost/python-package;
-    python3.4 ./mk_wheel.py;
+    python3 ./mk_wheel.py;
 fi
