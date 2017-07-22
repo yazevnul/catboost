@@ -47,12 +47,14 @@ matrix:
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
     - os: osx
       # python runtime is not available yet [1], so we have to prepare sandbox by ourselves
-      #
       # [1] https://github.com/travis-ci/travis-ci/issues/2312
+      #
       language: generic
       osx_image: xcode8.3
       before_install: brew update
       install: |
+        # vm already has python 2.7 installed, we do it here only for consistency with python3 build
+        #
         brew install python
         virtualenv py2env -p python2
         source py2env/bin/activate
@@ -67,10 +69,10 @@ matrix:
         source py3env/bin/activate
       env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
 
-
 before_script: |
     # `ya` provides it's own compiler toolchains, `CC` and CXX` environment variables will override
     # them so we have to unset them.
+    #
     unset CC
     unset CXX
 
