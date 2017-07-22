@@ -25,28 +25,30 @@ before_script: |
     unset CC
     unset CXX
 
-script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
-
 matrix:
   include:
     - os: linux
       dist: trusty
       language: cpp
       env: CB_BUILD_AGENT='clang-linux-x86_64-debug'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
     - os: linux
       dist: trusty
       language: cpp
       env: CB_BUILD_AGENT='clang-linux-x86_64-release'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
     - os: linux
       dist: trusty
       language: python
       python: 2.7
       env: CB_BUILD_AGENT='python2-linux-x86_64-release'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
     - os: linux
       dist: trusty
       language: python
       python: 3.4
       env: CB_BUILD_AGENT='python3-linux-x86_64-release'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
     - os: linux
       dist: trusty
       language: r
@@ -57,10 +59,12 @@ matrix:
       osx_image: xcode8.3
       language: cpp
       env: CB_BUILD_AGENT='clang-darwin-x86_64-debug'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
     - os: osx
       osx_image: xcode8.3
       language: cpp
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
     - os: osx
       osx_image: xcode8.3
       # python runtime is not available yet [1], so we have to prepare sandbox by ourselves
@@ -75,6 +79,7 @@ matrix:
         virtualenv py2env -p python2
         source py2env/bin/activate
       env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
     - os: osx
       osx_image: xcode8.3
       language: generic
@@ -84,3 +89,4 @@ matrix:
         virtualenv py3env -p python3
         source py3env/bin/activate
       env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
+      script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
