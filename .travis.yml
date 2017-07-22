@@ -20,37 +20,37 @@ addons:
 matrix:
   include:
     - os: linux
-      language: cpp
       dist: trusty
+      language: cpp
       env: CB_BUILD_AGENT='clang-linux-x86_64-debug'
     - os: linux
-      language: cpp
       dist: trusty
+      language: cpp
       env: CB_BUILD_AGENT='clang-linux-x86_64-release'
     - os: linux
-      language: python
       dist: trusty
+      language: python
       python: 2.7
       env: CB_BUILD_AGENT='python2-linux-x86_64-release'
     - os: linux
-      language: python
       dist: trusty
+      language: python
       python: 3.4
       env: CB_BUILD_AGENT='python3-linux-x86_64-release'
     - os: osx
-      language: cpp
       osx_image: xcode8.3
+      language: cpp
       env: CB_BUILD_AGENT='clang-darwin-x86_64-debug'
     - os: osx
-      language: cpp
       osx_image: xcode8.3
+      language: cpp
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
     - os: osx
+      osx_image: xcode8.3
       # python runtime is not available yet [1], so we have to prepare sandbox by ourselves
       # [1] https://github.com/travis-ci/travis-ci/issues/2312
       #
       language: generic
-      osx_image: xcode8.3
       before_install: brew update
       install: |
         # vm already has python 2.7 installed, we do it here only for consistency with python3 build
@@ -60,8 +60,8 @@ matrix:
         source py2env/bin/activate
       env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
     - os: osx
-      language: generic
       osx_image: xcode8.3
+      language: generic
       before_install: brew update
       install: |
         brew install python3
