@@ -1,6 +1,6 @@
 sudo: false
 cache:
-  packaes: true
+  packages: true
   apt: true
   directories:
     - $HOME/.ya
