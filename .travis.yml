@@ -90,3 +90,5 @@ matrix:
         source py3env/bin/activate
       env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
+  allow_failures:
+    - language: r
