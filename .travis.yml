@@ -83,4 +83,4 @@ before_script: |
     unset CC
     unset CXX
 
-script: ./ci/travis/script.sh
+script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
