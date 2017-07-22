@@ -42,8 +42,7 @@ matrix:
       dist: trusty
       language: r
       r: release
-      before_install: |
-        cd catboost/R-package
+      before_install: cd catboost/R-package
       env: CB_BUILD_AGENT='r-linux-x86_64-release'
     - os: osx
       osx_image: xcode8.3
