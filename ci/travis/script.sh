@@ -18,11 +18,6 @@ if [ "${CB_BUILD_AGENT}" == 'python3-linux-x86_64-release' ]; then
     python3 ./mk_wheel.py -j 1;
 fi
 
-if [ "${CB_BUILD_AGENT}" == 'r-linux-x86_64-release' ]; then
-    cd catboost/R-package;
-    R -e 'install.packages("devtools")\ndevtools::build()\ndevtools::install()\n';
-fi
-
 if [ "${CB_BUILD_AGENT}" == 'clang-darwin-x86_64-debug' ]; then
     ./ya make --stat -d -j 1 catboost/app catboost/pytest;
 fi
