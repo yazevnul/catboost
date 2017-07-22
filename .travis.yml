@@ -20,32 +20,42 @@ addons:
 matrix:
   include:
     - os: linux
+      language: cpp
       dist: trusty
       env: CB_BUILD_AGENT='clang-linux-x86_64-debug'
     - os: linux
+      language: cpp
       dist: trusty
       env: CB_BUILD_AGENT='clang-linux-x86_64-release'
     - os: linux
+      language: python
       dist: trusty
       python: 2.7
       env: CB_BUILD_AGENT='python2-linux-x86_64-release'
     - os: linux
+      language: python
       dist: trusty
       python: 3.4
       env: CB_BUILD_AGENT='python3-linux-x86_64-release'
     - os: osx
+      language: cpp
       osx_image: xcode8.3
       env: CB_BUILD_AGENT='clang-darwin-x86_64-debug'
     - os: osx
+      language: cpp
       osx_image: xcode8.3
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
     - os: osx
+      language: python
       osx_image: xcode8.3
       python: 2.7
+      install: brew install python
       env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
     - os: osx
+      language: python
       osx_image: xcode8.3
-      python: 3.4
+      python: 3.6
+      install: brew install python3
       env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
 
 
@@ -56,5 +66,4 @@ before_script:
       unset CC
       unset CXX
 
-script:
-  ./ci/travis/script.sh
+script: ./ci/travis/script.sh
