@@ -24,10 +24,6 @@ clone_folder: c:\projects\catboost
 
 install: git submodule update --init --recursive
 
-before_build: |
-  REG delete HKCU\Environment /F /V CC
-  REG delete HKCU\Environment /F /V CXX
-
 build_script: |
   cd c:\projects\catboost
   call ya.bat make --verbose --stat -rttt catboost\app catboost\pytest
