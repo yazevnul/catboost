@@ -48,22 +48,22 @@ matrix:
     - os: osx
       language: python
       osx_image: xcode8.3
-      python: 2.7
-      install: brew install python
       env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
     - os: osx
       language: python
       osx_image: xcode8.3
-      python: 3.6
-      install: brew install python3
+      before_install: brew update
+      install: |
+        brew install python3
+        virtualenv py3env -p python3
+        source py3env/bin/activate
       env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
 
 
-before_script:
+before_script: |
     # `ya` provides it's own compiler toolchains, `CC` and CXX` environment variables will override
     # them so we have to unset them.
-    - |
-      unset CC
-      unset CXX
+    unset CC
+    unset CXX
 
 script: ./ci/travis/script.sh
