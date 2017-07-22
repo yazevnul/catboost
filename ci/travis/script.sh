@@ -20,7 +20,7 @@ fi
 
 if [ "${CB_BUILD_AGENT}" == 'r-linux-x86_64-release' ]; then
     cd catboost/R-package;
-    R -e "install.packages('devtools')\ndevtools::build()\ndevtools::install()\n";
+    R -e 'install.packages("devtools")\ndevtools::build()\ndevtools::install()\n';
 fi
 
 if [ "${CB_BUILD_AGENT}" == 'clang-darwin-x86_64-debug' ]; then
