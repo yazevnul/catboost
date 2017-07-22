@@ -1,5 +1,6 @@
 sudo: false
 cache:
+  packaes: true
   apt: true
   directories:
     - $HOME/.ya
@@ -37,6 +38,11 @@ matrix:
       language: python
       python: 3.4
       env: CB_BUILD_AGENT='python3-linux-x86_64-release'
+    - os: linux
+      dist: trusty
+      language: r
+      r: release
+      env: CB_BUILD_AGENT='r-linux-x86_64-release'
     - os: osx
       osx_image: xcode8.3
       language: cpp
