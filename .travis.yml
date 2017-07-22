@@ -47,6 +47,8 @@ matrix:
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
     - os: osx
       # python runtime is not available yet [1], so we have to prepare sandbox by ourselves
+      #
+      # [1] https://github.com/travis-ci/travis-ci/issues/2312
       language: generic
       osx_image: xcode8.3
       before_install: brew update
