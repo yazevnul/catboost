@@ -90,5 +90,11 @@ matrix:
         source py3env/bin/activate
       env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
+    - os: osx
+      osx_image: xcode8.3
+      language: r
+      r: release
+      before_install: cd catboost/R-package
+      env: CB_BUILD_AGENT='r-darwin-x86_64-release'
   allow_failures:
     - language: r
