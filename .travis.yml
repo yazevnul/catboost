@@ -3,7 +3,7 @@ cache:
   packages: true
   apt: true
   directories:
-    - $HOME/.ya/build/cache
+    - $HOME/.ya
 
 notifications:
   email: false
