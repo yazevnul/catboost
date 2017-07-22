@@ -1,6 +1,4 @@
-dist: trusty
 sudo: false
-language: cpp
 cache:
   apt: true
   directories:
@@ -22,53 +20,41 @@ addons:
 matrix:
   include:
     - os: linux
-      before_install:
-        - |
-          unset CC
-          unset CXX
+      dist: trusty
       env: CB_BUILD_AGENT='clang-linux-x86_64-debug'
-    - os: osx
-      before_install:
-        - |
-          unset CC
-          unset CXX
-      env: CB_BUILD_AGENT='clang-darwin-x86_64-debug'
     - os: linux
-      before_install:
-        - |
-          unset CC
-          unset CXX
+      dist: trusty
       env: CB_BUILD_AGENT='clang-linux-x86_64-release'
     - os: linux
-      before_install:
-        - |
-          unset CC
-          unset CXX
+      dist: trusty
+      python: 2.7
       env: CB_BUILD_AGENT='python2-linux-x86_64-release'
     - os: linux
-      before_install:
-        - |
-          unset CC
-          unset CXX
+      dist: trusty
+      python: 3.4
       env: CB_BUILD_AGENT='python3-linux-x86_64-release'
     - os: osx
-      before_install:
-        - |
-          unset CC
-          unset CXX
+      osx_image: xcode8.3
+      env: CB_BUILD_AGENT='clang-darwin-x86_64-debug'
+    - os: osx
+      osx_image: xcode8.3
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
     - os: osx
-      before_install:
-        - |
-          unset CC
-          unset CXX
+      osx_image: xcode8.3
+      python: 2.7
       env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
     - os: osx
-      before_install:
-        - |
-          unset CC
-          unset CXX
+      osx_image: xcode8.3
+      python: 3.4
       env: CB_BUILD_AGENT='python3-darwin-x86_64-release'
+
+
+before_script:
+    # `ya` provides it's own compiler toolchains, `CC` and CXX` environment variables will override
+    # them so we have to unset them.
+    - |
+      unset CC
+      unset CXX
 
 script:
   ./ci/travis/script.sh
