@@ -22,6 +22,7 @@ before_script: |
     # `ya` provides it's own compiler toolchains, `CC` and CXX` environment variables will override
     # them so we have to unset them.
     #
+    rm -rf $HOME/.ya
     unset CC
     unset CXX
 
